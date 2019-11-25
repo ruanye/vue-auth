@@ -8,9 +8,10 @@ function auth() {
         home: true,
         home_index: true,
         count_to: true,
-        upload: true,
+        upload: false,
         form: true,
         store: true,
+        error: true,
       },
       // 组件权限
       component: {

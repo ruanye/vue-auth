@@ -8,7 +8,11 @@ export default new Vuex.Store({
   state: {
     hasPermisson: false, // 初始化设置用户没有获取过权限
   },
-  mutations: {},
+  mutations: {
+    setPermisson(state) {
+      state.hasPermisson = true;
+    },
+  },
   actions: {},
   modules: {
     route,

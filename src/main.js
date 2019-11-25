@@ -8,11 +8,16 @@ import 'element-ui/lib/theme-chalk/index.css';
 // eslint-disable-next-line global-require
 if (process.env.NODE_ENV === 'development') require('./mock');
 // 路由钩子
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   // 如果没有获取过权限，则获取路由权限
   if (!store.state.hasPermisson) {
     // 发送请求获取权限
-    store.dispatch('route/getAuthRoute');
+    // eslint-disable-next-line no-unused-vars
+    const newRouter = await store.dispatch('route/getAuthRoute');
+    // vue-router Api 提供的动态添加路由的方法
+    router.addRoutes(newRouter);
+    next({ ...to, replace: true });
+  } else {
     next();
   }
 });

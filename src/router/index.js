@@ -48,7 +48,8 @@ export const routes = [
     component: () => import('../views/login.vue'),
   },
   {
-    path: '/*',
+    path: '*',
+    // name: 'error',
     component: () => import('../views/error_404.vue'),
   },
 ];

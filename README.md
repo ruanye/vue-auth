@@ -19,3 +19,8 @@ vue add element-ui
 
 1. 后台动态返回路由(mock/index.js)
 2. 要判断当前角色有没有获取过权限列表
+3. 导航的数据结构
+
+```js
+[{ name: 1, children: [{ name: 1 - 1,chilren:[{name:1-1-2}] }, { name: 1 - 2 }] }, { name: 1 - 2 }];
+```
