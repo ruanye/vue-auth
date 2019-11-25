@@ -22,6 +22,7 @@ const actions = {
       // 根据权限列表来过滤出我需要的路由列表
       // eslint-disable-next-line no-unused-vars
       const needRouter = getAccesRouterList(routerMap, authList);
+      console.log(needRouter);
     } catch (e) {
       console.log(e);
     }
