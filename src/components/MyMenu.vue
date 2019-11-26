@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <el-menu :router="true">
+  <div
+    style="width: 200px;
+    float: left;"
+  >
+    <el-menu>
       <template v-for="(menu, index) in menuList">
         <SubMenu :item="menu" :key="index"></SubMenu>
       </template>

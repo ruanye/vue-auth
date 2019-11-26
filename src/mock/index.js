@@ -16,7 +16,7 @@ function auth() {
       // 组件权限
       component: {
         edit_button: true,
-        publish_button: false,
+        dele_button: false,
       },
     },
   };

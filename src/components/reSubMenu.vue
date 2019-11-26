@@ -20,7 +20,9 @@
       </el-submenu>
       <!-- 如果没有儿子 -->
       <el-menu-item v-else :index="item.path">
-        {{ item.meta.title }}
+        <router-link :to="{ path: item.path }">
+          {{ item.meta.title }}
+        </router-link>
       </el-menu-item>
     </template>
   </div>

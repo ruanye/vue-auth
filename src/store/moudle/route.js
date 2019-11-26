@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable no-param-reassign */
 // store/moudle/route.js 管理路由的vuex
 import { getAuth } from '../../api';
@@ -17,6 +18,10 @@ function getAccesRouterList(routes, page) {
 
 const state = {
   menuList: [],
+  btnPermission: {
+    edit_button: true, // 组件权限
+    dele_button: true,
+  },
 };
 const actions = {
   async getAuthRoute({ commit }) {
@@ -29,8 +34,14 @@ const actions = {
       // eslint-disable-next-line no-unused-vars
       const authList = await getAuth();
       const {
-        rules: { page },
+        rules: {
+          page,
+          // eslint-disable-next-line camelcase
+          component: { edit_button, dele_button },
+        },
       } = authList;
+      //  根据接口设置按钮权限
+      commit('setComp', { edit_button, dele_button });
       // 根据权限列表来过滤出我需要的路由列表
       // eslint-disable-next-line no-unused-vars
       needRouter = getAccesRouterList(routerMap, page);
@@ -48,6 +59,10 @@ const mutations = {
   // eslint-disable-next-line no-shadow
   setMenulist(state, routes) {
     state.menuList = routes;
+  },
+  setComp(state, payload) {
+    state.edit_button = payload.edit_button;
+    state.dele_button = payload.dele_button;
   },
 };
 export default {
