@@ -1,0 +1,33 @@
+<template>
+  <!-- 这里写递归组件 -->
+  <div>
+    <template>
+      <!-- 如果有儿子 -->
+      <el-submenu
+        v-if="item.children && item.children.length"
+        :index="item.path"
+        ><template v-for="(m, i) in item.children">
+          <template slot="title">
+            {{ item.meta.title }}
+          </template>
+          <!-- 组件里面调用自身 -->
+          <reSubMenu :item="m" :key="i"></reSubMenu>
+        </template>
+      </el-submenu>
+      <!-- 如果没有儿子 -->
+      <el-menu-item v-else :index="item.path">
+        {{ item.meta.title }}
+      </el-menu-item>
+    </template>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'reSubMenu', // 组件是可以在它们自己的模板中调用自身的。不过它们只能通过 name 选项来做这件事：
+  props: ['item'],
+};
+</script>
+
+<style>
+</style>

@@ -2,17 +2,7 @@
   <div>
     <el-menu :router="true">
       <template v-for="(menu, index) in menuList">
-        <!-- <el-submenu
-          v-if="menu.children && menu.children.length"
-          :key="menu.name"
-          :index="menu.name"
-        >
-          <template slot="title">{{ menu.meta.title }}</template>
-        </el-submenu>
-        <el-menu-item v-else :key="menu.name" :index="menu.name">{{
-          menu.meta.title
-        }}</el-menu-item> -->
-        <MenyItem :menu="menu" :key="index"></MenyItem>
+        <SubMenu :item="menu" :key="index"></SubMenu>
       </template>
     </el-menu>
   </div>
@@ -21,11 +11,11 @@
 <script>
 import { mapState } from 'vuex';
 // eslint-disable-next-line import/extensions
-import MenyItem from './MenuItem';
+import SubMenu from './reSubMenu';
 
 export default {
   components: {
-    MenyItem,
+    SubMenu,
   },
   computed: {
     ...mapState('route', ['menuList']),

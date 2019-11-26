@@ -14,7 +14,7 @@ export const routerMap = [
     component: Home,
     children: [
       {
-        path: 'home_index',
+        path: '/home_index',
         name: 'home_index',
         meta: {
           title: '首页1',
