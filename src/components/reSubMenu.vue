@@ -6,10 +6,14 @@
       <el-submenu
         v-if="item.children && item.children.length"
         :index="item.path"
-        ><template v-for="(m, i) in item.children">
-          <template slot="title">
+        :key="item.name"
+      >
+        <template slot="title">
+          <router-link :to="{ path: item.path }">
             {{ item.meta.title }}
-          </template>
+          </router-link>
+        </template>
+        <template v-for="(m, i) in item.children">
           <!-- 组件里面调用自身 -->
           <reSubMenu :item="m" :key="i"></reSubMenu>
         </template>
