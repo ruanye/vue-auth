@@ -13,6 +13,7 @@ Vue.directive('has', {
   // eslint-disable-next-line no-unused-vars
   inserted(el, bindings, vnode) {
     const { value } = bindings;
+    console.log(value);
     // 从vuex里面找到按钮的true/false
     const flag = vnode.context.$store.state.route.btnPermission[value];
     console.log(flag);

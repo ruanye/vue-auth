@@ -61,8 +61,8 @@ const mutations = {
     state.menuList = routes;
   },
   setComp(state, payload) {
-    state.edit_button = payload.edit_button;
-    state.dele_button = payload.dele_button;
+    state.btnPermission.edit_button = payload.edit_button;
+    state.btnPermission.dele_button = payload.dele_button;
   },
 };
 export default {
